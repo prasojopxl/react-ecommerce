@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "../../assets/css/global.scss"
 import "./style.scss";
 import Logo from "../../assets/images/logo-abc.svg"
+import {Search} from "../search/Search";
 
 export const Header = () => {
     return (
@@ -16,9 +17,9 @@ export const Header = () => {
                 </div>
             </div>
             <div className="right">
+                <Search/>
                 <div className="wrp-membermenu">
                     <Link to="/login">Login</Link>
-                    <Link to="/started" className="btn">Get Starter</Link>
                 </div>
             </div>
         </div>

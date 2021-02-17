@@ -1,0 +1,18 @@
+@import "../../assets//css/variable";
+
+
+.wrp-search {
+    display: flex;
+    align-items: center;
+    input[type="submit"], input[type="button"] {
+        background: url("../../assets/images/icon-search.svg") no-repeat center var(--color-pink);
+        height: 31px;
+        padding: 5px;
+        border:none;
+        width: 40px;
+    }
+    input[type="text"] {
+        padding: 7px 10px;
+        border: #aaa solid 1px;
+    }
+}

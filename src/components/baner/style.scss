@@ -1,0 +1,28 @@
+@import "../../assets/css/variable";
+
+.wrp-baner {
+    color: var(--color-black);
+    padding: 50px 0;
+    .contents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+        .left {
+            width: 40%;
+        }
+    }
+    .btn {
+        margin-top: 10px;
+        display: inline-block;
+        padding: 15px 25px;
+        min-width: 100px;
+        text-align: center;
+    }
+}
+
+.img-mainbaner {
+    max-width: 600px;
+}

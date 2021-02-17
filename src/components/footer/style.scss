@@ -1,0 +1,47 @@
+@import "../../assets/css/variable";
+
+.wrp-footer {
+    background: rgba(236, 248, 255, 38%);
+    line-height: 21px;
+    font-size: 14px;
+    .btm {
+        background: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+    p {
+        margin: 0;
+    }
+    .contents {
+        
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0;
+        .itemfooter {
+            &:first-child {
+                max-width: 350px;
+            }
+        }
+        h4 {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding: 0;
+            margin-top: 0;
+            li {
+                list-style-type: none;
+                text-transform:capitalize;
+            }
+            a {
+                color: var(--color-purple);
+                text-decoration: none;
+                padding: 3px 0;
+                display: block;
+            }
+        }
+    }
+}
