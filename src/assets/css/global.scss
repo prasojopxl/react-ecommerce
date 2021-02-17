@@ -1,0 +1,16 @@
+@import "./variable";
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.btn {
+    background: var(--color-blue-soft);
+    color: var(--color-black);
+    padding: 10px 15px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: bold;
+}

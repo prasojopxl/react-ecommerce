@@ -1,0 +1,39 @@
+@import "../../assets/css/variable";
+
+
+.wrp-header {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    max-width: 50px;
+}
+
+.mainmenu {
+    display: flex;
+    align-items: center;
+    a {
+        padding: 7px 30px;
+        color: #fff;    
+        text-decoration: none;
+        border-radius: var(--radius-full);
+        font-size: 17px;
+        margin: 0 10px;
+        background: var(--color-purple);
+    }
+}
+
+.wrp-membermenu {
+    a {
+        color: var(--color-black);
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+    }
+}
