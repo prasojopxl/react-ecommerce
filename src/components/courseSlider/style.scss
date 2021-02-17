@@ -1,3 +1,9 @@
-@import "../../assets/css/slick-theme.min.css";
-@import "../../assets/css/slick.min.css";
-
+.wrp-sliderproduct {
+    margin: 0 30px;
+}
+.itemslider {
+    margin: 20px;
+    img {
+        max-width: 100%;
+    }
+}
