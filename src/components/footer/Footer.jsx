@@ -1,6 +1,21 @@
 import React from 'react'
 import "./style.scss";
-import {ItemFooter} from "./ItemFooter";
+import {Link} from "react-router-dom";
+
+const ItemFooter = (props) => {
+    return (
+        <div className="itemfooter">
+            <h4>{props.title}</h4>
+            <p>{props.content}</p>
+            <ul>
+                {props.menu.map((menuname,i)=> {
+                    return <li key={i}><Link to={menuname}>{menuname}</Link> </li>
+                })}                    
+            </ul>
+
+        </div>
+    )
+}
 
 export const Footer = () => {
     return (
