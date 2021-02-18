@@ -2,15 +2,17 @@ import React, {useState} from 'react'
 import Slider from "react-slick";
 import imageCover from "../../assets/images/cover-dev.jpg";
 import "./style.scss";
+import arrowRight from "../../assets/images/arrow-right.svg";
+import { Link } from 'react-router-dom';
+
 
 export const CourseSlider = () => {
     var settings = {
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 5,
-        arrows: true,
-		// prevArrow: 'aa',
-		// nextArrow: '87',        
+        arrows:true,
+        dots:true,
         responsive: [
             {
                 breakpoint: 1200,
@@ -84,20 +86,26 @@ export const CourseSlider = () => {
     })
 
     return (
-        <div className="wrp-sliderproduct">            
+        <div className="wrp-sliderproduct">           
+            <div className="titleslider">
+                <div className="left">Course</div>
+                <div className="right"><Link to="/"> Read More <img src={arrowRight} alt=""/></Link></div>
+            </div>
+
             <Slider {...settings}>
                 {   
                     product.products.map((item,i)=> {
                         return (
                             <div key={i} className="itemslider">
-                                <img src={item.cover} alt="sdsa"/>
-                                <h3>{item.title}</h3>
-                                <h5>{item.level}</h5>
-                                <div className="price">{item.price}</div>
+                                <img src={item.cover} alt={item.title}/>
+                                <div className="content">
+                                    <h3><Link to="/">{item.title}</Link></h3>
+                                    <h5>{item.level}</h5>
+                                    <div className="price">{item.price}</div>
+                                </div>
                             </div>
                         )
-                    })                
-                
+                    })                                
                 }
             </Slider>
         </div>        

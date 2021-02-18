@@ -1,0 +1,36 @@
+@import "../../assets/css/variable";
+
+.wrp-pricing {
+    padding: 30px 0;
+    background: var(--color-gray-soft);
+    .itempricing {
+        background: #fff;
+        border-radius: var(--radius);
+        margin: 15px;
+        max-width: 250px;
+        text-align: center;
+        padding: 30px;
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.05);
+        -moz-box-shadow:    0px 0px 7px 0px rgba(50, 50, 50, 0.05);
+        box-shadow:         0px 0px 7px 0px rgba(50, 50, 50, 0.05);        
+        h3 {
+            font-size: 27px;
+        }
+        h6 {
+            font-size: 12px;
+        }
+        h2 {
+            font-size: 25px;
+        }
+        p {
+            margin: 50px 0;
+        }
+    }
+}
+
+.wrp-listpricing {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
