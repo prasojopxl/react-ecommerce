@@ -3,6 +3,7 @@ import {BrowserRouter,Switch, Route} from "react-router-dom"
 import {Footer, Header} from "./components/"
 import { Home } from './pages/home/Home'
 import { Kelas } from './pages/kelas/Kelas'
+import { KelasDetail } from './pages/kelas/KelasDetail'
 
 
 export const App = () => {
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/buku" exact>Buku</Route>
           <Route path="/blog" exact>Blog</Route>
           <Route path="/login" exact>Login</Route>
+          <Route path="/kelas/:id" exact component={KelasDetail}></Route>
           <Route path="/" exact component={Home}/>
         </Switch>
 
