@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import Slider from "react-slick";
 import imageCover from "../../assets/images/cover-dev.jpg";
 import "./style.scss";
 import arrowRight from "../../assets/images/arrow-right.svg";
 import { Link } from 'react-router-dom';
+import {ItemCourse} from "./ItemCourse";
 
 
 export const CourseSlider = () => {
@@ -96,14 +97,15 @@ export const CourseSlider = () => {
                 {   
                     product.products.map((item,i)=> {
                         return (
-                            <div key={i} className="itemslider">
-                                <img src={item.cover} alt={item.title}/>
-                                <div className="content">
-                                    <h3><Link to="/">{item.title}</Link></h3>
-                                    <h5>{item.level}</h5>
-                                    <div className="price">{item.price}</div>
-                                </div>
-                            </div>
+                            <ItemCourse key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            // <div key={i} className="itemslider">
+                            //     <img src={item.cover} alt={item.title}/>
+                            //     <div className="content">
+                            //         <h3><Link to="/">{item.title}</Link></h3>
+                            //         <h5>{item.level}</h5>
+                            //         <div className="price">{item.price}</div>
+                            //     </div>
+                            // </div>
                         )
                     })                                
                 }

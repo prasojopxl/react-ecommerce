@@ -2,6 +2,7 @@
 
 .wrp-filter {
     margin: 0 auto;
+    margin-bottom: 20px;
     max-width: 600px;
     text-align: center;
     a {
@@ -31,5 +32,14 @@
         color: #fff;
         text-decoration: none;
         border-radius: var(--radius);
+    }
+}
+
+.wrp-listproduct {
+    display: flex;
+    flex-wrap: wrap;
+    .itemslider {
+        flex: 0 0 30%;
+        max-width: 30%;
     }
 }
