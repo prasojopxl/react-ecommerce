@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "../../assets/css/global.scss"
 import "./style.scss";
-import Logo from "../../assets/images/logo-abc.svg"
+import {Logo} from "../../assets/images/";
 import {Search} from "../search/Search";
 
 export const Header = () => {

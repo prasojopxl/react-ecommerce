@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
-import Dev from "../../assets/images/dev.svg"
-import IconStar from "../../assets/images/icon-star.svg";
+import {Dev, IconStar} from "../../assets/images";
 
 const Itembenefit = (props) => {
     return (

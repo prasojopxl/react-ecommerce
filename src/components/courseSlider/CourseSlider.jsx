@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import Slider from "react-slick";
-import imageCover from "../../assets/images/cover-dev.jpg";
 import "./style.scss";
-import arrowRight from "../../assets/images/arrow-right.svg";
+import {IconRight, imageCover} from "../../assets/images";
 import { Link } from 'react-router-dom';
 import {ItemCourse} from "./ItemCourse";
 
@@ -90,7 +89,7 @@ export const CourseSlider = () => {
         <div className="wrp-sliderproduct">           
             <div className="titleslider">
                 <div className="left">Course</div>
-                <div className="right"><Link to="/"> Read More <img src={arrowRight} alt=""/></Link></div>
+                <div className="right"><Link to="/"> Read More <img src={IconRight} alt=""/></Link></div>
             </div>
 
             <Slider {...settings}>
@@ -98,14 +97,6 @@ export const CourseSlider = () => {
                     product.products.map((item,i)=> {
                         return (
                             <ItemCourse key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
-                            // <div key={i} className="itemslider">
-                            //     <img src={item.cover} alt={item.title}/>
-                            //     <div className="content">
-                            //         <h3><Link to="/">{item.title}</Link></h3>
-                            //         <h5>{item.level}</h5>
-                            //         <div className="price">{item.price}</div>
-                            //     </div>
-                            // </div>
                         )
                     })                                
                 }

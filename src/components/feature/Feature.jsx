@@ -1,9 +1,6 @@
 import React from 'react'
 import "./style.scss";
-import IconList from "../../assets/images/icon-list.svg";
-import IconVideo from "../../assets/images/icon-video.svg";
-import IconTime from "../../assets/images/icon-time.svg";
-import IconMember from "../../assets/images/icon-user.svg";
+import {IconList,  IconVideo, IconTime, IconMember} from "../../assets/images";
 
 const ItemFeater = (props) => {
     return (
