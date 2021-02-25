@@ -1,6 +1,7 @@
 import React from 'react'
 import "./style.scss";
-import {Title} from "../title/Title";
+import {Title} from "../../../components/title/Title";
+
 
 const ItemPricing = (props) => {
     return (

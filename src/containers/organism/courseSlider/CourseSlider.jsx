@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Slider from "react-slick";
 import "./style.scss";
-import {IconRight, imageCover} from "../../assets/images";
+import {IconRight, imageCover} from "../../../assets/images";
 import { Link } from 'react-router-dom';
 import {ItemCourse} from "./ItemCourse";
 

@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import "./style.scss";
-import { Baner } from '../../components/baner/Baner';
-import { Quote } from '../../components/quote/Quote';
-import { Title } from '../../components/title/Title';
-import {ItemCourse} from "../../components/courseSlider/ItemCourse";
-import imageCover from "../../assets/images/cover-dev.jpg";
+import { Baner } from '../../../containers/organism/baner/Baner';
+import { Quote } from '../../../containers/organism/quote/Quote';
+import { Title } from '../../../components/title/Title';
+import {ItemCourse} from "../../../containers/organism/courseSlider/ItemCourse";
+import imageCover from "../../../assets/images/cover-dev.jpg";
 
 export const Kelas = () => {
     const [product, setProduct] = useState({

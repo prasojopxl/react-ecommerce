@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import {Dev, IconStar} from "../../assets/images";
+import {Dev, IconStar} from "../../../assets/images";
 
 const Itembenefit = (props) => {
     return (

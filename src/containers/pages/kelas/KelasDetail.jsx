@@ -1,5 +1,4 @@
 import React from 'react'
-import {Header} from "../../components/";
 import {useParams} from "react-router-dom";
 
 export const KelasDetail = () => {

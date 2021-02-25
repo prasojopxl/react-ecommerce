@@ -1,9 +1,9 @@
 import React from 'react'
 import {BrowserRouter,Switch, Route} from "react-router-dom"
 import {Footer, Header} from "./components/"
-import { Home } from './pages/home/Home'
-import { Kelas } from './pages/kelas/Kelas'
-import { KelasDetail } from './pages/kelas/KelasDetail'
+import { Home } from './containers/pages/home/Home';
+import { Kelas } from './containers/pages/kelas/Kelas';
+import { KelasDetail } from './containers//pages/kelas/KelasDetail';
 
 
 export const App = () => {

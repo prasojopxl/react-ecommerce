@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import "./style.scss";
-import {MainBaner} from "../../assets/images";
+import {MainBaner} from "../../../assets/images";
+
 
 export const Baner = () => {
     return (

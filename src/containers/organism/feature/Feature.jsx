@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.scss";
-import {IconList,  IconVideo, IconTime, IconMember} from "../../assets/images";
+import {IconList,  IconVideo, IconTime, IconMember} from "../../../assets/images";
 
 const ItemFeater = (props) => {
     return (
