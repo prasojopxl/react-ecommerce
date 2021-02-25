@@ -17,6 +17,35 @@ img {max-width: 100%;}
     font-weight: bold;
 }
 
+
+input[type="text"], input[type="password"], input[type="number"] {
+    border-radius: var(--radius-full);
+    border-style: none;
+    padding:10px 20px;
+    border: var(--color-blue-soft) solid 1px;
+    background: #fff;
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type="submit"], input[type="button"] {
+    background: var(--color-blue-dark);
+    color: #fff;
+    border-radius: var(--radius-full);
+    padding: 12px 20px;
+    min-width: 150px;
+    border:none;
+    box-sizing: border-box;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);    
+}
+
 body {
     line-height: 23px;
 }

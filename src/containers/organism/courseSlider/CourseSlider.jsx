@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Slider from "react-slick";
 import "./style.scss";
-import {IconRight, imageCover} from "../../../assets/images";
+import {IconRight} from "../../../assets/images";
 import { Link } from 'react-router-dom';
 import {ItemCourse} from "./ItemCourse";
+import axios from "axios";
 
 
 export const CourseSlider = () => {
@@ -44,57 +45,27 @@ export const CourseSlider = () => {
           ]        
     };
 
-    const [product, setProduct] = useState({
-        "products": [
-            {
-                "cover":imageCover,
-                "title": "Frontend Dev with Vue",
-                "level":"Basic",
-                "price":"Rp. 799.000"
-            },
-            {
-                "cover":imageCover,
-                "title": "NodeJS with Express",
-                "level":"Basic",
-                "price":"Rp. 599.000"
-            },
-            {
-                "cover":imageCover,
-                "title": "SEO",
-                "level":"Medium",
-                "price":"Rp. 500.000"
-            },
-            {
-                "cover":imageCover,
-                "title": "Rest API",
-                "level":"Medium",
-                "price":"Rp. 510.000"
-            },
-            {
-                "cover":imageCover,
-                "title": "Fundamental React Native",
-                "level":"Basic",
-                "price":"Rp. 490.000"
-            },
-            {
-                "cover":imageCover,
-                "title": "Golang",
-                "level":"Basic",
-                "price":"Rp. 899.000"
-            },            
-        ]
-    })
+    const [product, setProduct] = useState([]);
+
+    useEffect(()=> {
+        fetch("http://localhost:3007/courseinfo")
+        .then((response)=> response.json())
+        .then((data)=> {
+            console.log(data)
+            console.log(data[0].title)
+            setProduct(data)
+        })
+    },[])
 
     return (
-        <div className="wrp-sliderproduct">           
+        <div className="wrp-sliderproduct">   
             <div className="titleslider">
                 <div className="left">Course</div>
                 <div className="right"><Link to="/"> Read More <img src={IconRight} alt=""/></Link></div>
             </div>
-
             <Slider {...settings}>
                 {   
-                    product.products.map((item,i)=> {
+                    product.map((item,i)=> {
                         return (
                             <ItemCourse key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
