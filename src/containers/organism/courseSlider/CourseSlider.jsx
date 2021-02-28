@@ -67,7 +67,7 @@ export const CourseSlider = () => {
         )
     }
 
-    const DeleteBtn = (index, e) => {
+    const DeleteBtn = () => {
         return (
             <div>
                 {alert("Delete Btn")}
@@ -85,7 +85,7 @@ export const CourseSlider = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse EditBtn={EditBtn} DeleteBtn={DeleteBtn.bind(this.index)} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse EditBtn={EditBtn} DeleteBtn={DeleteBtn} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }
