@@ -19,7 +19,6 @@ export const CourseSlider = () => {
                 breakpoint: 1200,
                 settings: {
                   arrows: false,
-                  centerMode: true,
                   centerPadding: '40px',
                   slidesToShow: 3
                 }
@@ -28,7 +27,6 @@ export const CourseSlider = () => {
                 breakpoint: 900,
                 settings: {
                   arrows: false,
-                  centerMode: true,
                   centerPadding: '40px',
                   slidesToShow: 2
                 }
@@ -37,7 +35,6 @@ export const CourseSlider = () => {
               breakpoint: 480,
               settings: {
                 arrows: false,
-                centerMode: true,
                 centerPadding: '40px',
                 slidesToShow: 1
               }
@@ -46,17 +43,25 @@ export const CourseSlider = () => {
     };
 
     const [product, setProduct] = useState([]);
+    const [loading, setLoading] =  useState(false);
 
     const history = useHistory;
 
-    useEffect(()=> {
-        fetch("http://localhost:3007/courseinfo")
-        .then((response)=> response.json())
-        .then((data)=> {
-            console.log(data)
-            console.log(data[0].title)
-            setProduct(data)
+    const getData = () => {
+        setLoading(true)
+        axios.get(`http://localhost:3007/courseinfo`)
+        .then((res)=> {
+            setProduct(res.data);
+            setLoading(false)
         })
+        .catch((e)=>{
+            setLoading(false)
+            console.log(`error ${e}`)
+        })
+    }
+
+    useEffect(()=> {
+        getData();
     },[])
 
     const EditBtn =() => {
@@ -67,16 +72,20 @@ export const CourseSlider = () => {
         )
     }
 
-    const DeleteBtn = () => {
-        return (
-            <div>
-                {alert("Delete Btn")}
-            </div>
-        )
+    const DeleteBtn = (id) => {
+        axios.delete(`http://localhost:3007/courseinfo/${id}`)
+        .then(res=>{
+            console.log(`data yang terhapus ${res.data[id]}`)
+            getData();
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     return (
         <div className="wrp-sliderproduct">   
+            {loading && <div>Loading ...</div>}
             <div className="titleslider">
                 <div className="left">Course</div>
                 <div className="right"><Link to="/"> Read More <img src={IconRight} alt=""/></Link></div>
@@ -85,7 +94,7 @@ export const CourseSlider = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse EditBtn={EditBtn} DeleteBtn={DeleteBtn} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse EditBtn={EditBtn} DeleteBtn={()=>DeleteBtn(item.id)} id={item.id} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }

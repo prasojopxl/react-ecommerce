@@ -31,7 +31,7 @@ export const Kelas = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse key={i} id={item.id} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }
