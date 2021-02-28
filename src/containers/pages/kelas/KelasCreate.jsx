@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import {useParams} from "react-router-dom";
-import axios from "axios";
+import {FormInput} from "../../../components/formInput/FormInput";
 
 export const KelasCreate = () => {
 
-
-
     return (
-        <div className="container wrp-kelasdetail">
-            create dadadadada
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum vero, totam amet quas possimus dolor, distinctio id impedit, autem dolorum commodi quibusdam? Maiores excepturi, molestiae explicabo omnis ea porro deleniti!
+        <div className="formpage">
+            <div className="wrp-form">
+                <h4>Create Data Course</h4>
+                <div className="boxlogin">
+                    <FormInput type="text" placeholder="Course Name"/>
+                    <FormInput type="text" placeholder="Level"/>
+                    <FormInput type="text" placeholder="Price"/>
+                    <FormInput type="submit" value="Submit"/>
+                </div>
+            </div>
         </div>
     )
 }
