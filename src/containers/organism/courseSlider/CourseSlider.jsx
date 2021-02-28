@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Slider from "react-slick";
 import "./style.scss";
 import {IconRight} from "../../../assets/images";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {ItemCourse} from "./ItemCourse";
 import axios from "axios";
 
@@ -47,6 +47,8 @@ export const CourseSlider = () => {
 
     const [product, setProduct] = useState([]);
 
+    const history = useHistory;
+
     useEffect(()=> {
         fetch("http://localhost:3007/courseinfo")
         .then((response)=> response.json())
@@ -56,6 +58,22 @@ export const CourseSlider = () => {
             setProduct(data)
         })
     },[])
+
+    const EditBtn =() => {
+        return (
+            <div>
+                {alert("Edit Btn")}
+            </div>
+        )
+    }
+
+    const DeleteBtn = (index, e) => {
+        return (
+            <div>
+                {alert("Delete Btn")}
+            </div>
+        )
+    }
 
     return (
         <div className="wrp-sliderproduct">   
@@ -67,7 +85,7 @@ export const CourseSlider = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse EditBtn={EditBtn} DeleteBtn={DeleteBtn.bind(this.index)} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }

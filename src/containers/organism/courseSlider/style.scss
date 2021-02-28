@@ -76,3 +76,18 @@
         }
     }
 }
+
+.wrp-btn {
+    display: flex;
+    button {
+        background: var(--color-blue);
+        flex: 1;
+        border: none;
+        padding: 10px 5px;
+        cursor: pointer;
+        color: #fff;
+        &:last-child {
+            background: var(--color-blue-dark);
+        }
+    }
+}
