@@ -26,6 +26,10 @@ export const Kelas = () => {
                 <Link to="/">Marketing</Link>
                 <Link to="/">Security</Link>
             </div>
+            
+            <div className="container">
+                <button>Create Data</button>
+            </div>
 
             <div className="container wrp-listproduct">
                 {   
