@@ -14,7 +14,7 @@ export const ItemCourse = (props) => {
                 <div className="price">{props.price}</div>
             </div>
             <div className="wrp-btn">
-                <button onClick={props.EditBtn}>Edit</button>
+                <Link to="/kelas/create"> Edit</Link>
                 <button onClick={props.DeleteBtn}>Delete</button>
             </div>
         </div>

@@ -6,7 +6,7 @@ export const KelasCreate = () => {
     return (
         <div className="formpage">
             <div className="wrp-form">
-                <h4>Create Data Course</h4>
+                <h4>Data Course</h4>
                 <div className="boxlogin">
                     <FormInput type="text" placeholder="Course Name"/>
                     <FormInput type="text" placeholder="Level"/>

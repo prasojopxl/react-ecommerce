@@ -79,13 +79,15 @@
 
 .wrp-btn {
     display: flex;
-    button {
+    button, a {
         background: var(--color-blue);
         flex: 1;
         border: none;
         padding: 10px 5px;
         cursor: pointer;
         color: #fff;
+        text-align: center;
+        text-decoration: none;
         &:last-child {
             background: var(--color-blue-dark);
         }

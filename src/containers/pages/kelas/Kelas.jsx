@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import "./style.scss";
 import { Baner } from '../../../containers/organism/baner/Baner';
 import { Quote } from '../../../containers/organism/quote/Quote';
@@ -8,6 +8,7 @@ import {ItemCourse} from "../../../containers/organism/courseSlider/ItemCourse";
 
 export const Kelas = () => {
     const [product, setProduct] = useState([])
+    const history = useHistory()
 
     useEffect(() => {
         fetch("http://localhost:3007/courseinfo")
@@ -27,8 +28,8 @@ export const Kelas = () => {
                 <Link to="/">Security</Link>
             </div>
             
-            <div className="container">
-                <button>Create Data</button>
+            <div className="container" style={{paddingLeft:"40px", marginBottom:"10px"}}>
+                <Link className="btn" onClick={()=> history.push("/kelas/create")}>Create Data</Link> 
             </div>
 
             <div className="container wrp-listproduct">
