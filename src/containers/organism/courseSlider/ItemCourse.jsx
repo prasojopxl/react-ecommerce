@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import "./style.scss";
 import { Link } from 'react-router-dom';
 
-export const ItemCourse = (props) => {
+export const ItemCourse = (props, title, level, price, onTitle, onLevel, onPrice, onSubmit, isUpdate) => {
 
 
     return (
