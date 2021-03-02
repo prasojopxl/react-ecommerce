@@ -5,10 +5,33 @@ import { Baner } from '../../../containers/organism/baner/Baner';
 import { Quote } from '../../../containers/organism/quote/Quote';
 import { Title } from '../../../components/title/Title';
 import {ItemCourse} from "../../../containers/organism/courseSlider/ItemCourse";
+import axios from "axios";
 
 export const Kelas = () => {
     const [product, setProduct] = useState([])
     const history = useHistory()
+
+
+    const getData = () => {
+        axios.get(`http://localhost:3007/courseinfo`)
+        .then((res)=> {
+            setProduct(res.data);
+        })
+        .catch((e)=>{
+            console.log(`error ${e}`)
+        })
+    }
+
+    const DeleteBtn = (id) => {
+        axios.delete(`http://localhost:3007/courseinfo/${id}`)
+        .then(res=>{
+            console.log(`data yang terhapus ${res.data[id]}`)
+            getData();
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
 
     useEffect(() => {
         fetch("http://localhost:3007/courseinfo")
@@ -17,6 +40,7 @@ export const Kelas = () => {
             setProduct(data)
         })
     }, []);
+
 
     return (
         <div>
@@ -29,14 +53,14 @@ export const Kelas = () => {
             </div>
             
             <div className="container" style={{paddingLeft:"40px", marginBottom:"10px"}}>
-                <Link className="btn" onClick={()=> history.push("/kelas/create")}>Create Data</Link> 
+                <button className="btn" onClick={()=> history.push("/kelas/create")}>Create Data</button> 
             </div>
 
             <div className="container wrp-listproduct">
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse key={i} id={item.id} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse key={i} id={item.id} cover={item.cover} title={item.title} level={item.level} price={item.price} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)}/>
                         )
                     })                                
                 }

@@ -7,6 +7,7 @@ import { KelasDetail } from './containers//pages/kelas/KelasDetail';
 import { Login } from './containers/pages/login/Login';
 import { Register } from './containers/pages/register/Register';
 import { KelasCreate } from './containers/pages/kelas/KelasCreate';
+import { KelasUpdate } from './containers/pages/kelas/KelasUpdate';
 
 
 export const App = () => {
@@ -23,6 +24,7 @@ export const App = () => {
           <Route path="/register" exact component={Register}></Route>
           <Route path="/kelas/create" exact component={KelasCreate}></Route>
           <Route path="/kelas/:id" exact component={KelasDetail}></Route>
+          <Route path="/kelas/update/:id" exact component={KelasUpdate}></Route>
           <Route path="/" exact component={Home}/>
         </Switch>
 

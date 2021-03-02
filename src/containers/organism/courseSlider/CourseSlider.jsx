@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Slider from "react-slick";
 import "./style.scss";
 import {IconRight} from "../../../assets/images";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import {ItemCourse} from "./ItemCourse";
 import axios from "axios";
 
@@ -45,7 +45,8 @@ export const CourseSlider = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] =  useState(false);
 
-    const history = useHistory;
+    const history = useHistory();
+    const params = useParams();
 
     const getData = () => {
         setLoading(true)
@@ -94,7 +95,7 @@ export const CourseSlider = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse EditBtn={EditBtn} DeleteBtn={()=>DeleteBtn(item.id)} id={item.id} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse EditBtn={EditBtn} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)} id={item.id} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }
