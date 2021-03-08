@@ -4,7 +4,8 @@ import {BrowserRouter,Switch, Route} from "react-router-dom"
 import {Footer, Header} from "../components"
 import { Home } from '../containers/pages/home/Home';
 import { Kelas } from '../containers/pages/kelas/Kelas';
-import { KelasDetail } from '../containers//pages/kelas/KelasDetail';
+import { Dashboard } from '../containers/pages/dashboard/Dashboard';
+import { KelasDetail } from '../containers/pages/kelas/KelasDetail';
 import { Login } from '../containers/pages/login/Login';
 import { Register } from '../containers/pages/register/Register';
 import { KelasCreate } from '../containers/pages/kelas/KelasCreate';
@@ -26,6 +27,7 @@ export const Navigation = () => {
           <Route path="/kelas/create" exact component={KelasCreate}></Route>
           <Route path="/kelas/:id" exact component={KelasDetail}></Route>
           <Route path="/kelas/update/:id" exact component={KelasUpdate}></Route>
+          <Route path="/dashboard" exact component={Dashboard}></Route>
           <Route path="/" exact component={Home}/>
         </Switch>
 
