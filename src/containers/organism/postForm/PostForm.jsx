@@ -4,8 +4,8 @@ import { FormInput } from '../../../components/formInput/FormInput'
 export const PostForm = ({
     title,
     onTitle,
-    level,
-    onLevel,
+    description,
+    onDescription,
     price,
     onPrice,
     onSubmit,
@@ -24,10 +24,10 @@ export const PostForm = ({
             }}/>
             <button  onClick={onSubmit}> {isUpdate ? "Update" : "Create"} </button>         */}
 
-            <input type="text" placeholder="Course Name" value={title} onChange={(e)=> {onTitle(e.target.value)}}/>
-            <input type="text" placeholder="Level" value={level} onChange={(e)=> {onLevel(e.target.value)}}/>
-            <input type="text" placeholder="Price" value={price} onChange={(e)=> {onPrice(e.target.value)}}/>
-            <button className="btn" style={{border:"none", minWidth:"100px"}} onClick={onSubmit}> {isUpdate ? "Update" : "Create"} </button>
+            <div className="item-input"><input type="text" placeholder="Course Name" value={title} onChange={(e)=> {onTitle(e.target.value)}}/></div>
+            <div className="item-input"><input type="text" placeholder="Description" value={description} onChange={(e)=> {onDescription(e.target.value)}}/></div>
+            <div className="item-input"><input type="text" placeholder="Price" value={price} onChange={(e)=> {onPrice(e.target.value)}}/></div>
+            <div className="item-input"><button className="btn" style={{border:"none", minWidth:"100px"}} onClick={onSubmit}> {isUpdate ? "Update" : "Create"} </button></div>
         </div>
         
     )

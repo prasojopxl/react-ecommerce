@@ -6,17 +6,17 @@ import axios from "axios"
 
 export const KelasCreate = () => {
     const [title, setTitle] = useState("");
-    const [level, setLevel] = useState("");
+    const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const history = useHistory();
 
-    const createPostKelas = (titleVal, levelVal, priceVal)=> {
-        axios.post(`http://localhost:3007/courseinfo/`,
+    const createPostKelas = (titleVal, descriptionVal, priceVal)=> {
+        axios.post(`http://localhost:4000/products/`,
             {
-                cover: "https://dummyimage.com/300x200/000/fff",
+                image: "https://placeimg.com/480/480/tech",
                 title: titleVal,
                 price:  priceVal,
-                level: levelVal,
+                description: descriptionVal,
             },
             {
                 headers: {
@@ -41,11 +41,11 @@ export const KelasCreate = () => {
                         isUpdate={false}
                         title={title}
                         onTitle={setTitle}
-                        level={level}
-                        onLevel={setLevel}
+                        description={description}
+                        onDescription={setDescription}
                         price={price}
                         onPrice={setPrice}
-                        onSubmit={()=> createPostKelas(title, level,price)}
+                        onSubmit={()=> createPostKelas(title, description,price)}
                     />
                 </div>
             </div>

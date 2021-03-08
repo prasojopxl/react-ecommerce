@@ -13,9 +13,9 @@ export const Kelas = () => {
 
 
     const getData = () => {
-        axios.get(`http://localhost:3007/courseinfo`)
+        axios.get(`http://localhost:4000/products`)
         .then((res)=> {
-            setProduct(res.data);
+            setProduct(res.data.data);
         })
         .catch((e)=>{
             console.log(`error ${e}`)
@@ -23,7 +23,7 @@ export const Kelas = () => {
     }
 
     const DeleteBtn = (id) => {
-        axios.delete(`http://localhost:3007/courseinfo/${id}`)
+        axios.delete(`http://localhost:4000/products/${id}`)
         .then(res=>{
             console.log(`data yang terhapus ${res.data[id]}`)
             getData();
@@ -34,11 +34,10 @@ export const Kelas = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:3007/courseinfo")
-        .then((res)=>res.json())
-        .then((data)=> {
-            setProduct(data)
-        })
+        axios.get(`http://localhost:4000/products`)
+        .then((res=> {
+            setProduct(res.data.data)
+         }))
     }, []);
 
 
@@ -60,7 +59,7 @@ export const Kelas = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse key={i} id={item.id} cover={item.cover} title={item.title} level={item.level} price={item.price} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)}/>
+                            <ItemCourse key={i} id={item.id} cover={item.image} title={item.title} description={item.description} price={item.price} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)}/>
                         )
                     })                                
                 }

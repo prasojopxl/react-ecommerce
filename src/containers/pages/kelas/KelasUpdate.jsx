@@ -5,19 +5,19 @@ import { PostForm } from '../../organism/postForm/PostForm';
 
 export const KelasUpdate = () => {
     const [title, setTitle] = useState("");
-    const [level, setLevel] = useState("");
+    const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const history = useHistory();
     const [postDetail, setPostDetail] = useState();
     const params = useParams();
 
-    const UpdatePost = (titleVal, levelVal, priceVal, postId) => {
-        axios.put(`http://localhost:3007/courseinfo/${postId}`,
+    const UpdatePost = (titleVal, descriptionVal, priceVal, postId) => {
+        axios.put(`http://localhost:4000/products/${postId}`,
             {
                 title: titleVal,
-                level: levelVal,
+                description: descriptionVal,
                 price: priceVal,
-                cover: "https://dummyimage.com/300x200/000/fff"
+                images: "https://placeimg.com/480/480/tech"
             },
             {
                 headers: {
@@ -32,14 +32,16 @@ export const KelasUpdate = () => {
     }
 
     const getPostDetail = (postId) => {
-        axios.get(`http://localhost:3007/courseinfo/${postId}`)
+        axios.get(`http://localhost:4000/products/${postId}`)
         .then (res=> {
-            setPostDetail(res.data)
+            setPostDetail(res.data.data)
             setTitle(res.data.title)
-            setLevel(res.data.level)
+            setDescription(res.data.description)
             setPrice(res.data.price)
+            console.log(res.data)
         })
     }
+
 
     useEffect(()=> {
         getPostDetail(params.id)
@@ -54,11 +56,11 @@ export const KelasUpdate = () => {
                         isUpdate={true}
                         title={title}
                         onTitle={setTitle}
-                        level={level}
-                        onLevel={setLevel}
+                        description={description}
+                        onDescription={setDescription}
                         price={price}
                         onPrice={setPrice}
-                        onSubmit={()=> UpdatePost(title, level, price, params.id)}
+                        onSubmit={()=> UpdatePost(title, description, price, params.id)}
                     />
                 </div>
             </div>

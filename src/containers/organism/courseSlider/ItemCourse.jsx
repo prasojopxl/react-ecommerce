@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import "./style.scss";
 import { Link, useHistory } from 'react-router-dom';
 
-export const ItemCourse = (props, title, level, price, onTitle, onLevel, onPrice, onSubmit, isUpdate) => {
+export const ItemCourse = (props, title, description, price, onTitle, onDescription, onPrice, onSubmit, isUpdate) => {
     const history = useHistory();
 
 
@@ -11,7 +11,7 @@ export const ItemCourse = (props, title, level, price, onTitle, onLevel, onPrice
             <img src={props.cover} alt={props.title}/>
             <div className="content">
                 <h3><Link to={`kelas/${props.id}`}>{props.title}</Link></h3>
-                <h5>{props.level}</h5>
+                <h5>{props.description}</h5>
                 <div className="price">{props.price}</div>
             </div>
             <div className="wrp-btn">
