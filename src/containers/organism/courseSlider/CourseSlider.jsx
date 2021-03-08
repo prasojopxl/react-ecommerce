@@ -50,10 +50,11 @@ export const CourseSlider = () => {
 
     const getData = () => {
         setLoading(true)
-        axios.get(`http://localhost:3007/courseinfo`)
+        axios.get(`http://localhost:4000/products`)
         .then((res)=> {
-            setProduct(res.data);
+            setProduct(res.data.data);
             setLoading(false)
+            console.log(res.data.data)
         })
         .catch((e)=>{
             setLoading(false)
@@ -74,7 +75,7 @@ export const CourseSlider = () => {
     }
 
     const DeleteBtn = (id) => {
-        axios.delete(`http://localhost:3007/courseinfo/${id}`)
+        axios.delete(`http://localhost:4000/products/${id}`)
         .then(res=>{
             console.log(`data yang terhapus ${res.data[id]}`)
             getData();
@@ -95,7 +96,7 @@ export const CourseSlider = () => {
                 {   
                     product.map((item,i)=> {
                         return (
-                            <ItemCourse EditBtn={EditBtn} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)} id={item.id} key={i} cover={item.cover} title={item.title} level={item.level} price={item.price}/>
+                            <ItemCourse EditBtn={EditBtn} paramId={item.id} DeleteBtn={()=>DeleteBtn(item.id)} id={item.id} key={i} cover={item.image} description={item.title} level={item.level} price={item.price}/>
                         )
                     })                                
                 }

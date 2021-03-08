@@ -20,7 +20,7 @@ export const Header = () => {
                 <Search/>
                 <div className="wrp-membermenu">
                     <Link to="/login">Login</Link>
-                    <Link to="/Register">Register</Link>
+                    <Link to="/register">Register</Link>
                 </div>
             </div>
         </div>
