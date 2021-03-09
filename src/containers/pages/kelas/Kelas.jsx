@@ -10,10 +10,15 @@ import axios from "axios";
 export const Kelas = () => {
     const [product, setProduct] = useState([])
     const history = useHistory()
+    const token = localStorage.getItem("JWT")
 
 
     const getData = () => {
-        axios.get(`http://localhost:4000/products`)
+        axios.get(`http://localhost:4000/products`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then((res)=> {
             setProduct(res.data.data);
         })
@@ -23,7 +28,11 @@ export const Kelas = () => {
     }
 
     const DeleteBtn = (id) => {
-        axios.delete(`http://localhost:4000/products/${id}`)
+        axios.delete(`http://localhost:4000/products/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then(res=>{
             console.log(`data yang terhapus ${res.data[id]}`)
             getData();
@@ -34,7 +43,11 @@ export const Kelas = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/products`)
+        axios.get(`http://localhost:4000/products`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then((res=> {
             setProduct(res.data.data)
          }))

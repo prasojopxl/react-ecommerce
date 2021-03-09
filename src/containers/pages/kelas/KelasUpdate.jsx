@@ -10,6 +10,7 @@ export const KelasUpdate = () => {
     const history = useHistory();
     const [postDetail, setPostDetail] = useState();
     const params = useParams();
+    const token = localStorage.getItem("JWT")
 
     const UpdatePost = (titleVal, descriptionVal, priceVal, postId) => {
         axios.put(`http://localhost:4000/products/${postId}`,
@@ -22,6 +23,8 @@ export const KelasUpdate = () => {
             {
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",                    
+                    "Authorization": `Bearer ${token}`
+                    
                 }
             }            
         )
@@ -32,7 +35,12 @@ export const KelasUpdate = () => {
     }
 
     const getPostDetail = (postId) => {
-        axios.get(`http://localhost:4000/products/${postId}`)
+        axios.get(`http://localhost:4000/products/${postId}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+
+        })
         .then (res=> {
             setPostDetail(res.data.data)
             setTitle(res.data.title)

@@ -48,9 +48,16 @@ export const CourseSlider = () => {
     const history = useHistory();
     const params = useParams();
 
+    const token = localStorage.getItem("JWT")
+
+
     const getData = () => {
         setLoading(true)
-        axios.get(`http://localhost:4000/products`)
+        axios.get(`http://localhost:4000/products`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }            
+        })
         .then((res)=> {
             setProduct(res.data.data);
             setLoading(false)
@@ -75,7 +82,11 @@ export const CourseSlider = () => {
     }
 
     const DeleteBtn = (id) => {
-        axios.delete(`http://localhost:4000/products/${id}`)
+        axios.delete(`http://localhost:4000/products/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }            
+        })
         .then(res=>{
             console.log(`data yang terhapus ${res.data[id]}`)
             getData();
