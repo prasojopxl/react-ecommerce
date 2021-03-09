@@ -4,9 +4,14 @@ import axios from "axios"
 
 export const Dashboard = () => {
     const [dataUser, setDataUser] = useState([])
+    const token = localStorage.getItem("JWT")
 
     useEffect(()=> {
-        axios.get(`http://localhost:4000/users`)
+        axios.get(`http://localhost:4000/users`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then((res)=> {
             console.log(res.data.data)
             setDataUser(res.data.data)
