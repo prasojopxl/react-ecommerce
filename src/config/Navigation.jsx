@@ -1,5 +1,5 @@
-import React from 'react'
-import {BrowserRouter,Switch, Route} from "react-router-dom"
+import React, { Children } from 'react'
+import {BrowserRouter,Switch, Route, useHistory, Redirect} from "react-router-dom"
 
 import {Footer, Header} from "../components"
 import { Home } from '../containers/pages/home/Home';
@@ -12,11 +12,29 @@ import { KelasCreate } from '../containers/pages/kelas/KelasCreate';
 import { KelasUpdate } from '../containers/pages/kelas/KelasUpdate';
 import Buku from '../containers/pages/buku/Buku';
 
+
 export const Navigation = () => {
+    const token = localStorage.getItem("JWT")
+    const history = useHistory();
+
+    function PrivateRoute () {
+      return (
+        <div>
+          {token ? <Dashboard/> : <Redirect to={{ pathname:"login" }}/>  }          
+        </div>
+
+      )
+    }
+    
+    function ProtectedPage () {
+      return (
+        <div>ini halaman protected</div>
+      )
+    }
+
     return (
         <BrowserRouter>
         <Header/>
-
         <Switch>
           <Route path="/course" exact component={()=> "hello course"}></Route>
           <Route path="/kelas" exact component={Kelas}></Route>
@@ -27,11 +45,18 @@ export const Navigation = () => {
           <Route path="/kelas/create" exact component={KelasCreate}></Route>
           <Route path="/kelas/:id" exact component={KelasDetail}></Route>
           <Route path="/kelas/update/:id" exact component={KelasUpdate}></Route>
-          <Route path="/dashboard" exact component={Dashboard}></Route>
+          {/* <Route path="/dashboard" exact component={Dashboard}></Route> */}
           <Route path="/" exact component={Home}/>
+          <PrivateRoute exact path="/dashboard" component={Dashboard}  />
+
+
+          <PrivateRoute path="/protected">
+            <ProtectedPage />
+          </PrivateRoute>
         </Switch>
 
         <Footer/>
     </BrowserRouter>
     )
 }
+
