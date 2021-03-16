@@ -1,7 +1,6 @@
-import React, { Children } from 'react'
+import React from 'react'
 import {BrowserRouter,Switch, Route, useHistory, Redirect} from "react-router-dom"
 
-import {Footer, Header} from "../components"
 import { Home } from '../containers/pages/home/Home';
 import { Kelas } from '../containers/pages/kelas/Kelas';
 import { Dashboard } from '../containers/pages/dashboard/Dashboard';
@@ -11,6 +10,10 @@ import { Register } from '../containers/pages/register/Register';
 import { KelasCreate } from '../containers/pages/kelas/KelasCreate';
 import { KelasUpdate } from '../containers/pages/kelas/KelasUpdate';
 import Buku from '../containers/pages/buku/Buku';
+import { SetUsers } from '../containers/pages/setUsers/SetUsers';
+import { SetProducts } from '../containers/pages/setProducts/SetProducts';
+import { SetCoupons } from '../containers/pages/setCoupons/SetCoupons';
+import { SetCategories } from '../containers/pages/setCategories/SetCategories';
 
 
 export const Navigation = () => {
@@ -34,29 +37,30 @@ export const Navigation = () => {
 
     return (
         <BrowserRouter>
-        <Header/>
-        <Switch>
-          <Route path="/course" exact component={()=> "hello course"}></Route>
-          <Route path="/kelas" exact component={Kelas}></Route>
-          <Route path="/buku" exact component={Buku}></Route>
-          <Route path="/blog" exact>Blog</Route>
-          <Route path="/login" exact component={Login}></Route>
-          <Route path="/register" exact component={Register}></Route>
-          <Route path="/kelas/create" exact component={KelasCreate}></Route>
-          <Route path="/kelas/:id" exact component={KelasDetail}></Route>
-          <Route path="/kelas/update/:id" exact component={KelasUpdate}></Route>
-          {/* <Route path="/dashboard" exact component={Dashboard}></Route> */}
-          <Route path="/" exact component={Home}/>
-          <PrivateRoute exact path="/dashboard" component={Dashboard}  />
+          <Switch>
+            <Route path="/course" exact component={()=> "hello course"}></Route>
+            <Route path="/kelas" exact component={Kelas}></Route>
+            <Route path="/buku" exact component={Buku}></Route>
+            <Route path="/blog" exact>Blog</Route>
+            <Route path="/login" exact component={Login}></Route>
+            <Route path="/register" exact component={Register}></Route>
+            <Route path="/kelas/create" exact component={KelasCreate}></Route>
+            <Route path="/kelas/:id" exact component={KelasDetail}></Route>
+            <Route path="/kelas/update/:id" exact component={KelasUpdate}></Route>
+            {/* <Route path="/dashboard" exact component={Dashboard}></Route> */}
+            <Route path="/" exact component={Home}/>
+            <Route path="/setusers" exact component={SetUsers}></Route>
+            <Route path="/setproducts" exact component={SetProducts}></Route>
+            <Route path="/setcoupons" exact component={SetCoupons}></Route>
+            <Route path="/setcategories" exact component={SetCategories}></Route>
+            <PrivateRoute exact path="/dashboard" component={Dashboard}  />
 
+            <PrivateRoute path="/protected">
+              <ProtectedPage />
+            </PrivateRoute>
 
-          <PrivateRoute path="/protected">
-            <ProtectedPage />
-          </PrivateRoute>
-        </Switch>
-
-        <Footer/>
-    </BrowserRouter>
+          </Switch>
+      </BrowserRouter>
     )
 }
 

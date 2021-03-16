@@ -7,18 +7,21 @@ import {CourseSlider} from "../../../containers/organism/courseSlider/CourseSlid
 import {Title} from "../../../components/title/Title";
 import { Pricing } from '../../../containers/organism/pricing/Pricing';
 import { Quote } from '../../../containers/organism/quote/Quote';
+import { Layout } from '../../organism/layout/Layout';
 
 export const Home = () => {
     return (
         <div>
-            <Baner/>
-            <Feature/>
-            <Benefit/>
-            <Title title="Mulai bersama daridasar.com" subtitle="Platform belajar yang dapat membantumu belajar apapun dari dasar"/>
-            <CourseSlider/>
-            <CourseSlider/>
-            <Pricing/>
-            <Quote/>
+            <Layout>
+                <Baner/>
+                <Feature/>
+                <Benefit/>
+                <Title title="Mulai bersama daridasar.com" subtitle="Platform belajar yang dapat membantumu belajar apapun dari dasar"/>
+                <CourseSlider/>
+                <CourseSlider/>
+                <Pricing/>
+                <Quote/>
+            </Layout>
         </div>
     )
 }

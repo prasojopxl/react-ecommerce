@@ -61,7 +61,6 @@ export const CourseSlider = () => {
         .then((res)=> {
             setProduct(res.data.data);
             setLoading(false)
-            console.log(res.data.data)
         })
         .catch((e)=>{
             setLoading(false)

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 import { PostForm } from '../../organism/postForm/PostForm';
+import { LayoutAdmin } from '../../organism/layoutAdmin/LayoutAdmin';
 
 export const KelasUpdate = () => {
     const [title, setTitle] = useState("");
@@ -56,6 +57,7 @@ export const KelasUpdate = () => {
     },[])
 
     return (
+        <LayoutAdmin>
         <div className="formpage">
             <div className="wrp-form">
                 <h4>Data Course</h4>
@@ -73,5 +75,6 @@ export const KelasUpdate = () => {
                 </div>
             </div>
         </div>
+        </LayoutAdmin>
     )
 }

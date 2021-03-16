@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Layout } from '../../organism/layout/Layout';
 import DescBuku from "./DescBuku";
 
 export default class Buku extends Component {
@@ -29,14 +30,16 @@ export default class Buku extends Component {
     
     render() {
         return (
-            <div style={{margin:"50px auto", textAlign:"center"}}>
-                <h1 style={{marginBottom:"10px"}}>Pemesanan Buku</h1>
-                Ketersediaan: {this.state.status}<br/><br/>
-                <DescBuku judulbuku="Javascript ES6" Desc="Buku ini menjelasakna secara detail penggunaan feature Javascript ES6. Cocok untuk pemula dan level medium karena dilengkapi studi kasus dan tugas - tugas untuk mempperdalam pemahaman logika pemprograman"/>
-                <button onClick={this.handleState}>+ Jumlah Pesan</button>
-                {this.state.jumlahPesan}
-                <hr/>
-            </div>
+            <Layout>
+                <div style={{margin:"50px auto", textAlign:"center"}}>
+                    <h1 style={{marginBottom:"10px"}}>Pemesanan Buku</h1>
+                    Ketersediaan: {this.state.status}<br/><br/>
+                    <DescBuku judulbuku="Javascript ES6" Desc="Buku ini menjelasakna secara detail penggunaan feature Javascript ES6. Cocok untuk pemula dan level medium karena dilengkapi studi kasus dan tugas - tugas untuk mempperdalam pemahaman logika pemprograman"/>
+                    <button onClick={this.handleState}>+ Jumlah Pesan</button>
+                    {this.state.jumlahPesan}
+                    <hr/>
+                </div>
+            </Layout>
         );
     }
 }

@@ -1,0 +1,36 @@
+@import "../../../assets/css/variable";
+
+.row-products {
+    margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
+    .item-products {
+        flex: 0 0 33.33%;
+        padding: 15px;
+        box-sizing: border-box;
+        .imgwrp {
+            max-height: 100px;
+            overflow: hidden;
+        }
+        h4, h5, p {
+            margin: 0;
+        }
+    }
+}
+
+.wrp-action {
+    display: flex;
+    justify-content: space-between;
+    a, button {
+        background: var(--color-orange);
+        flex: 1;
+        text-align: center;
+        padding: 5px;
+        text-decoration: none;
+        color: #fff;
+        border: none;
+        &:last-child {
+            background: var(--color-purple);
+        }
+    }
+}

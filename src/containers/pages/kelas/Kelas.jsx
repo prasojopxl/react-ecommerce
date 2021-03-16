@@ -6,6 +6,7 @@ import { Quote } from '../../../containers/organism/quote/Quote';
 import { Title } from '../../../components/title/Title';
 import {ItemCourse} from "../../../containers/organism/courseSlider/ItemCourse";
 import axios from "axios";
+import { Layout } from '../../organism/layout/Layout';
 
 export const Kelas = () => {
     const [product, setProduct] = useState([])
@@ -55,7 +56,7 @@ export const Kelas = () => {
 
 
     return (
-        <div>
+        <Layout>
             <Baner/>
             <Title title="Category"/>
             <div className="wrp-filter">
@@ -64,9 +65,6 @@ export const Kelas = () => {
                 <Link to="/">Security</Link>
             </div>
             
-            <div className="container" style={{paddingLeft:"40px", marginBottom:"10px"}}>
-                <button className="btn" onClick={()=> history.push("/kelas/create")}>Create Data</button> 
-            </div>
 
             <div className="container wrp-listproduct">
                 {   
@@ -88,6 +86,6 @@ export const Kelas = () => {
 
             <Quote/>
 
-        </div>
+        </Layout>
     )
 }
