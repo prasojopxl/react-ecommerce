@@ -6,6 +6,7 @@ import { Layout } from '../../organism/layout/Layout';
 
 export const Login = () => {
     const [email, setEmail] = useState("");
+    const token = localStorage.getItem("JWT")
     const [password, setPassword]= useState ("")
     const history = useHistory();
 
@@ -18,32 +19,42 @@ export const Login = () => {
             console.log("berhasil",res)
             localStorage.setItem("JWT", res.data.accessToken)
             localStorage.setItem("user",email)
-            history.push("/dashboard");
+            history.push("/setproducts")
         })
         .catch ((err)=> {
             console.log("gagal",err)
         })
     }
 
-    return (
-        <Layout>
-            <div className="formpage">
-                <div className="wrp-form">
-                    <h4>Login</h4>
-                    <div className="boxlogin">
-                        <div className="item-input">
-                            <input type="text" value={email} name="email" id="" onChange={(e) => { setEmail(e.target.value)}} placeholder="Name"/>
+    const LoginForm = () => {
+        return (
+            <Layout>
+                <div className="formpage">
+                    <div className="wrp-form">
+                        <h4>Login</h4>
+                        <div className="boxlogin">
+                            <div className="item-input">
+                                <input type="text" value={email} name="email" id="" onChange={(e) => { setEmail(e.target.value)}} placeholder="Name"/>
+                            </div>
+                            <div className="item-input">
+                                <input type="password" value={password} name="password" onChange={(e)=> {setPassword(e.target.value)}} placeholder="Password"/>
+                            </div>
+                            <div className="item-input">
+                                <input type="button" onClick={()=> login()} value="Submit"/>
+                            </div>
                         </div>
-                        <div className="item-input">
-                            <input type="password" value={password} name="password" onChange={(e)=> {setPassword(e.target.value)}} placeholder="Password"/>
-                        </div>
-                        <div className="item-input">
-                            <input type="button" onClick={()=> login()} value="Submit"/>
-                        </div>
-
                     </div>
                 </div>
-            </div>
-        </Layout>
+            </Layout>    
+        )        
+    }
+
+    return (
+        <React.Fragment>
+            {
+                token? history.push("/dashboard") : LoginForm()
+            }
+
+        </React.Fragment>
     )
 }

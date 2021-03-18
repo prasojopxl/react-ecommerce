@@ -6,6 +6,7 @@ export const LayoutAdmin = ({children}) => {
     const history = useHistory()
     const Logout = () => {
         localStorage.removeItem("JWT");
+        localStorage.removeItem("user");
         history.push("/login")
     }
 
