@@ -9,6 +9,17 @@ export const SetUsers = () => {
     const history = useHistory();
     const [dataUser, setDataUser] = useState([])
 
+    const DeleteUser = (id) => {
+        axios.delete(`http://localhost:4000/users/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then ((res)=> {
+            console.log(`Data terhapus ${id}`)
+        })
+    }
+
     useEffect(() => {
         axios.get(`http://localhost:4000/users`, {
             headers: {
@@ -16,7 +27,6 @@ export const SetUsers = () => {
             }
         })
         .then ((res)=> {
-            console.log(res.data)
             setDataUser(res.data.data)
         })
     }, [])
@@ -25,11 +35,11 @@ export const SetUsers = () => {
             {
                 dataUser.map((item, i)=> {
                     return (
-                        <div className="row-item">
+                        <div className="row-item" key={item.id}>
                             <div className="item">{item.name}</div>
                             <div className="item">{item.email}</div>
                             <div className="item">{item.phone}</div>
-                            <div className="item"><Link>Edit</Link> | <Link>Delete</Link></div>
+                            <div className="item"><button>Edit</button> | <button onClick={()=> DeleteUser(item.id)}>Delete</button> </div>
                         </div>
 
                     )
