@@ -14,6 +14,7 @@ import { SetUsers } from '../containers/pages/setUsers/SetUsers';
 import { SetProducts } from '../containers/pages/setProducts/SetProducts';
 import { SetCoupons } from '../containers/pages/setCoupons/SetCoupons';
 import { SetCategories } from '../containers/pages/setCategories/SetCategories';
+import { UserUpdate } from '../containers/pages/setUsers/UserUpdate';
 
 
 export const Navigation = () => {
@@ -53,6 +54,7 @@ export const Navigation = () => {
             <Route path="/setproducts" exact component={SetProducts}></Route>
             <Route path="/setcoupons" exact component={SetCoupons}></Route>
             <Route path="/setcategories" exact component={SetCategories}></Route>
+            <Route path="/setusers/update/:id" exact component={UserUpdate}></Route>
             <PrivateRoute exact path="/dashboard" component={Dashboard}  />
 
             <PrivateRoute path="/protected">
