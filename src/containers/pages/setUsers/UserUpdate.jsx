@@ -30,8 +30,7 @@ export const UserUpdate = () => {
             }
         )
         .then ((res)=> {
-            console.log("update", res)
-            history.pushState("/setusers")
+            history.push("/setusers");
         })
     }
 
@@ -56,27 +55,27 @@ export const UserUpdate = () => {
         })
 
     }
+
     useEffect (()=> {
         userDetail(params.id)
-    })
+    },[])
 
     return (
         <LayoutAdmin>
-            
             <div className="item-input">
-                <input type="text" placeholder="Name" devaultValue={name}  />
+                <input type="text" placeholder="Name" value={name} onChange={(e)=> {setName(e.target.value)}} />
             </div>
             <div className="item-input">
-                <input type="password" placeholder="Password" value={password}/>
+                <input type="password" placeholder="Password" value={password} onChange={(e)=> {setPassword(e.target.value)}}/>
             </div>
             <div className="item-input">
-                <input type="text" placeholder="Email" value={email}/>
+                <input type="text" placeholder="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
             </div>
             <div className="item-input">
-                <input type="text" placeholder="Phone" value={phone}/>
+                <input type="text" placeholder="Phone" value={phone} onChange={(e)=>{setPhone(e.target.value)}}/>
             </div>
             <div className="item-input">
-                <button className="btn" onSubmit={()=> UpdateUser(name, password, email, phone)} style={{border:"none", minWidth:"100px"}}>Update </button>
+                <button className="btn" onClick={()=> UpdateUser(name, password, email, phone, params.id)} style={{border:"none", minWidth:"100px"}}>Update </button>
             </div>
 
         </LayoutAdmin>

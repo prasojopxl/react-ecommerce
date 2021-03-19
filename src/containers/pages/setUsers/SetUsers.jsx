@@ -39,7 +39,7 @@ export const SetUsers = () => {
                             <div className="item">{item.name}</div>
                             <div className="item">{item.email}</div>
                             <div className="item">{item.phone}</div>
-                            <div className="item"><button>Edit</button> | <button onClick={()=> DeleteUser(item.id)}>Delete</button> </div>
+                            <div className="item"><button onClick={()=>history.push(`/setusers/update/${item.id}`)}>Edit</button> | <button onClick={()=> DeleteUser(item.id)}>Delete</button> </div>
                         </div>
 
                     )
